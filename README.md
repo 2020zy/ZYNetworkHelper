@@ -1,45 +1,34 @@
 # ZYNetworkHelper
 最好用的IOS网络请求框架最近才上传的
 由于缓存采用的是YYcache所以要先导入#YYcache和AFnetworking
-/// 请求成功的Block
+# 如果写的不好的地方请指出来，方便修改，希望你们能点亮我的星星，项目里面有我的说明，不懂的可以提出来！！！
+# 代码如下
+
+*请求成功的Block
 typedef void(^ZYHttpRequestSuccess)(id responseObject);
-
-/// 请求失败的Block
+*请求失败的Block
 typedef void(^ZYHttpRequestFailed)(NSError *error);
-
-/// 缓存的Block
+*缓存的Block
 typedef void(^ZYHttpRequestCache)(id responseCache);
-
-/// 上传或者下载的进度, Progress.completedUnitCount:当前大小 - Progress.totalUnitCount:总大小
+*上传或者下载的进度, Progress.completedUnitCount:当前大小 - Progress.totalUnitCount:总大小
 typedef void (^ZYHttpProgress)(NSProgress *progress);
-
-/// 网络状态的Block
+*网络状态的Block
 typedef void(^ZYNetworkStatus)(ZYNetworkStatusType status);
-
-@class AFHTTPSessionManager;
-@interface ZYNetworkHelper : NSObject
-/// 有网YES, 无网:NO
+*有网YES, 无网:NO
 + (BOOL)isNetwork;
-
-/// 手机网络:YES, 反之:NO
+*手机网络:YES, 反之:NO
 + (BOOL)isWWANNetwork;
-
-/// WiFi网络:YES, 反之:NO
+* WiFi网络:YES, 反之:NO
 + (BOOL)isWiFiNetwork;
-
-/// 取消所有HTTP请求
+*取消所有HTTP请求
 + (void)cancelAllRequest;
-
-/// 实时获取网络状态,通过Block回调实时获取(此方法可多次调用)
+*实时获取网络状态,通过Block回调实时获取(此方法可多次调用)
 + (void)networkStatusWithBlock:(ZYNetworkStatus)networkStatus;
-
-/// 取消指定URL的HTTP请求
+*取消指定URL的HTTP请求
 + (void)cancelRequestWithURL:(NSString *)URL;
-
-/// 开启日志打印 (Debug级别)
+*开启日志打印 (Debug级别)
 + (void)openLog;
-
-/// 关闭日志打印,默认关闭
+*关闭日志打印,默认关闭
 + (void)closeLog;
 
 /**
@@ -80,4 +69,4 @@ typedef void(^ZYNetworkStatus)(ZYNetworkStatusType status);
                            responseCache:(ZYHttpRequestCache)responseCache
                            success:(ZYHttpRequestSuccess)success
                            failure:(ZYHttpRequestFailed)failure;
-＃如果写的不好的地方请指出来，方便修改，希望你们能点亮我的星星，项目里面有我的说明，不懂的可以提出来！！！
+
